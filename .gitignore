@@ -3,3 +3,5 @@ __pycache__/
 .DS_Store
 venv/
 .env
+sentiment_ignore.pyc
+sentiments.py

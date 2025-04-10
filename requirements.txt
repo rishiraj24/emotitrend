@@ -1,6 +1,6 @@
-
 streamlit
-vaderSentiment
-matplotlib
-wordcloud
 textblob
+nltk
+vaderSentiment
+SpeechRecognition
+pyaudio

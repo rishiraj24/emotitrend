@@ -1,31 +1,25 @@
-
 import streamlit as st
-from sentiments import analyse_sentiment
-from matplotlib import pyplot as plt
-from wordcloud import WordCloud
+from modules.sentiment import analyze_sentiment
+from modules.voice_input import get_voice_input
+from modules.music_recommender import recommend_playlist
 
-mood_to_music = {
-    "Happy": "https://open.spotify.com/playlist/37i9dQZF1DXdPec7aLTmlC",
-    "Sad": "https://open.spotify.com/playlist/37i9dQZF1DWVrtsSlLKzro",
-    "Angry": "https://open.spotify.com/playlist/37i9dQZF1DX3rxVfibe1L0",
-    "Neutral": "https://open.spotify.com/playlist/37i9dQZF1DX3sCT1ItXgWZ"
-}
+st.set_page_config(page_title="EmotiTrend", page_icon="🎧")
 
-st.title("🎵 EmotiTrend – Mood-Based Music Recommender")
+st.title("🎧 EmotiTrend – Mood-Based Music Recommender")
 
-user_input = st.text_area("Enter your recent thoughts or paste your tweet:")
+input_mode = st.radio("Choose input mode:", ["Text", "Voice"])
 
-if st.button("Analyze & Recommend"):
-    if user_input.strip() == "":
-        st.warning("Please enter some text!")
-    else:
-        mood = analyse_sentiment(user_input)
-        st.subheader(f"Detected Mood: {mood}")
-        st.markdown(f"🎧 [Click here for your playlist]({mood_to_music[mood]})")
+user_input = ""
 
-        # Bonus: word cloud
-        st.subheader("🧠 Word Cloud of Your Text")
-        wc = WordCloud(background_color="white", width=600, height=300).generate(user_input)
-        plt.imshow(wc, interpolation='bilinear')
-        plt.axis("off")
-        st.pyplot(plt)
+if input_mode == "Text":
+    user_input = st.text_area("Describe how you're feeling today:")
+elif input_mode == "Voice":
+    if st.button("🎙️ Record Mood"):
+        user_input = get_voice_input()
+
+if user_input:
+    mood = analyze_sentiment(user_input)
+    st.subheader(f"🧠 Detected Mood: **{mood.upper()}**")
+
+    playlist_url = recommend_playlist(mood)
+    st.markdown(f"[🎵 Click here for your {mood} playlist]({playlist_url})", unsafe_allow_html=True)
