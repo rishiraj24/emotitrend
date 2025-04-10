@@ -9,3 +9,5 @@ pandas
 numpy
 datasets
 joblib
+streamlit-lottie
+requests
