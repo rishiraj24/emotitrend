@@ -4,3 +4,8 @@ nltk
 vaderSentiment
 SpeechRecognition
 pyaudio
+scikit-learn
+pandas
+numpy
+datasets
+joblib
