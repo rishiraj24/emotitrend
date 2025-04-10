@@ -1,0 +1,6 @@
+
+streamlit
+vaderSentiment
+matplotlib
+wordcloud
+textblob
