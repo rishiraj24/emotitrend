@@ -1,9 +1,9 @@
-#🧠 EmotiTrend – Mood-Based Music Recommender 🎧
+#  EmotiTrend – Mood-Based Music Recommender 🎧 
 EmotiTrend is an AI-powered web app that detects your emotional state from the text you type (like journal entries or tweets), and recommends a Spotify playlist that matches your mood — happy, sad, angry, chill, etc. It's built using NLP sentiment analysis (VADER + TextBlob) and Streamlit.
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-#🔍 Features
+# Features
 🧠 Emotion Detection using hybrid VADER + TextBlob sentiment scoring.
 
 🎵 Spotify Playlist Recommendations based on mood.
@@ -14,7 +14,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-#🛠 Tech Stack
+# Tech Stack
 **Frontend:** Streamlit
 
 **NLP Libraries:** VADER, TextBlob
@@ -26,7 +26,7 @@ ________________________________________________________________________________
 
 ________________________________________________________________________________________________________________________________________________________________________________________________________________
 
-#🧪 How It Works
+# How It Works
 User types in their current thoughts or mood.
 
 The app uses VADER and TextBlob to analyze the sentiment polarity.
